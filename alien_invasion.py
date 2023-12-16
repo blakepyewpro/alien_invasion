@@ -34,7 +34,7 @@ class AlienInvasion:
         while True:
             self._check_events()
             self.ship.update()
-            self.bullets.update()
+            self._update_bullets()
             self._update_screen()
             self.clock.tick(60)
 
@@ -68,8 +68,17 @@ class AlienInvasion:
 
     def _fire_bullet(self):
         """Create a bullet and add it to the Sprite group."""
-        new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)
+        if len(self.bullets) < self.settings.bullets_allowed:
+            new_bullet = Bullet(self)
+            self.bullets.add(new_bullet)
+
+    def _update_bullets(self):
+        """Update bullets, and remove them once they are no longer on screen."""
+        self.bullets.update()
+
+        for bullet in self.bullets.sprites():
+                if bullet.rect.bottom <= 0:
+                    self.bullets.remove(bullet)
 
     def _update_screen(self):
         """Updates images on-screen and flips to the new screen."""
