@@ -22,7 +22,7 @@ class Alien(Sprite):
 
     def check_edges(self):
         """Check if edge of rect is past the edge of a screen"""
-        return (self.rect.right > self.screen_rect.right) or (self.rect.left <= 0)
+        return self.rect.right > self.screen_rect.right or self.rect.left <= 0
 
     def update(self):
         """Changes position per screen redraw."""
