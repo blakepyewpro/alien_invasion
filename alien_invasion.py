@@ -9,6 +9,7 @@ from ship import Ship
 from bullet import Bullet
 from alien import Alien
 from button import Button
+from mixer import Mixer
 
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
@@ -38,6 +39,8 @@ class AlienInvasion:
 
         self.game_active = False
         self.play_button = Button(self, 'Play')
+
+        self.sound = Mixer()
 
     def run_game(self):
         """Start the main gameplay loop."""
@@ -104,6 +107,7 @@ class AlienInvasion:
         if len(self.bullets) < self.settings.bullets_allowed:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
+            self.sound.play_gun_shot()
 
     def _update_bullets(self):
         """Update bullets, and remove them once they are no longer on screen."""
@@ -119,6 +123,9 @@ class AlienInvasion:
         """Responds to collisions between bullets and aliens."""
         collisions = pygame.sprite.groupcollide(
             self.bullets, self.aliens, True, True)
+        
+        if len(collisions) > 0:
+            self.sound.play_alien_hit()
         
         if not self.aliens:
             self.bullets.empty()
@@ -137,6 +144,8 @@ class AlienInvasion:
 
     def _ship_hit(self):
         """Called to respond to ship collisions."""
+        self.sound.play_ship_hit()
+
         if self.stats.ships_left > 0:
             self.stats.ships_left -= 1
 
