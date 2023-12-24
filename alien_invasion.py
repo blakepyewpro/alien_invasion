@@ -62,8 +62,9 @@ class AlienInvasion:
             elif event.type == pygame.KEYUP:
                self._check_keyup_events(event)
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                mouse_pos = pygame.mouse.get_pos
-                self._check_play_button(mouse_pos)
+                mouse_x, mouse_y = pygame.mouse.get_pos()
+                self._check_play_button(mouse_x, mouse_y)
+                
     
     def _check_keydown_events(self, event):
         """Responds to keypresses."""
@@ -83,9 +84,9 @@ class AlienInvasion:
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
 
-    def _check_play_button(self, mouse_pos):
+    def _check_play_button(self, mouse_x, mouse_y):
         """Reset game state and sets game to active when play button is clicked."""
-        button_clicked = self.play_button.rect.collidepoint(mouse_pos)
+        button_clicked = self.play_button.rect.collidepoint(mouse_x, mouse_y)
         if button_clicked and not self.game_active:
             self.stats.reset_stats()
             self.game_active = True
