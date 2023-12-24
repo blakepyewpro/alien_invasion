@@ -3,13 +3,13 @@ from time import sleep
 import pygame
 
 
-from settings import Settings
-from game_stats import GameStats
-from ship import Ship
-from bullet import Bullet
-from alien import Alien
-from button import Button
-from mixer import Mixer
+from modules.settings import Settings
+from modules.game_stats import GameStats
+from modules.ship import Ship
+from modules.bullet import Bullet
+from modules.alien import Alien
+from modules.button import Button
+from modules.mixer import Mixer
 
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
