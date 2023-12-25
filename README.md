@@ -16,4 +16,5 @@ In *Alien Invasion*, the player controls a ship that appears at the bottom cente
  ## Credits
 
  Mrthenoronha - freesound.org - enemy_hit and player_hit sounds
+ 
  matrixxx - freesound.org - gun_shot sound
