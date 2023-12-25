@@ -98,6 +98,7 @@ class AlienInvasion:
             self.sound.play_start()
             self.stats.reset_stats()
             self.settings.init_dynamic_settings()
+            self.score.prep_score()
             self.game_active = True
 
             self.aliens.empty()
@@ -132,6 +133,10 @@ class AlienInvasion:
         
         if len(collisions) > 0:
             self.sound.play_alien_hit()
+
+        for aliens in collisions.values():
+            self.stats.score += self.settings.alien_points * len(aliens)
+        self.score.prep_score()
         
         if not self.aliens:
             self.bullets.empty()
