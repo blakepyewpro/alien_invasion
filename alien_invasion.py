@@ -88,10 +88,12 @@ class AlienInvasion:
             self.ship.moving_left = False
 
     def _check_play_button(self, mouse_x, mouse_y):
-        """Reset game state and sets game to active when play button is clicked."""
+        """Reset game state and sets game to active when play button is 
+        clicked."""
         button_clicked = self.play_button.rect.collidepoint(mouse_x, mouse_y)
         if button_clicked and not self.game_active:
             self.stats.reset_stats()
+            self.settings.init_dynamic_settings()
             self.game_active = True
 
             self.aliens.empty()
@@ -130,6 +132,7 @@ class AlienInvasion:
         if not self.aliens:
             self.bullets.empty()
             self._create_fleet()
+            self.settings.increase_speed()
 
     def _update_aliens(self):
         """Check if the fleet is at an edge, then update all aliens. Also detect
