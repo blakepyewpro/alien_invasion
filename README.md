@@ -1,6 +1,6 @@
 # alien_invasion
 
-a simple arcade shooter made using pygame.
+A simple arcade shooter made using pygame.
 
 ## Outline
 
@@ -18,3 +18,5 @@ In *Alien Invasion*, the player controls a ship that appears at the bottom cente
  Mrthenoronha - freesound.org - enemy_hit and player_hit sounds
  
  matrixxx - freesound.org - gun_shot sound
+ 
+ FartBiscuit1700 - freesound-org - game_start sound
