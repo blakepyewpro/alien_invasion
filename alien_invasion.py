@@ -111,7 +111,8 @@ class AlienInvasion:
 
     def _fire_bullet(self):
         """Create a bullet and add it to the Sprite group."""
-        if len(self.bullets) < self.settings.bullets_allowed:
+        if len(self.bullets) < self.settings.bullets_allowed \
+            and self.game_active:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
             self.sound.play_gun_shot()
@@ -156,7 +157,7 @@ class AlienInvasion:
 
     def _ship_hit(self):
         """Called to respond to ship collisions."""
-        self.sound.play_ship_hit()
+        self.sound.play_player_loss()
 
         if self.stats.ships_left > 0:
             self.stats.ships_left -= 1

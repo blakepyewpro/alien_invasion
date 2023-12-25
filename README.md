@@ -15,8 +15,12 @@ In *Alien Invasion*, the player controls a ship that appears at the bottom cente
 
  ## Credits
 
- Mrthenoronha - freesound.org - enemy_hit and player_hit sounds
+ Eric Mathes - Python Crash Course 3rd Ed.
+
+ Mrthenoronha - freesound.org - enemy_hit sound
  
  matrixxx - freesound.org - gun_shot sound
  
- FartBiscuit1700 - freesound-org - game_start sound
+ FartBiscuit1700 - freesound.org - game_start sound
+
+ cabled_mess - freesound.org - player_loss sound

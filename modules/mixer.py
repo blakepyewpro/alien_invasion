@@ -9,7 +9,8 @@ class Mixer:
 
         self.gun_sound = pygame.mixer.Sound(open('assets/gun_shot.wav'))
         self.alien_hit_sound = pygame.mixer.Sound(open('assets/enemy_kill.wav'))
-        self.ship_hit_sound = pygame.mixer.Sound(open('assets/player_hit.wav'))
+        self.player_loss_sound = pygame.mixer.Sound(
+            open('assets/player_loss.wav'))
         self.start_sound = pygame.mixer.Sound(open('assets/game_start.wav'))
 
     def play_gun_shot(self):
@@ -20,9 +21,9 @@ class Mixer:
         """Play alien hit sound."""
         self.alien_hit_sound.play()
 
-    def play_ship_hit(self):
+    def play_player_loss(self):
         """Play ship hit sound."""
-        self.alien_hit_sound.play()
+        self.player_loss_sound.play()
 
     def play_start(self):
         """Play game start sound."""
