@@ -1,6 +1,6 @@
 import pygame.font
 
-class Score:
+class Scoreboard:
     """This class tracks the score for the current game."""
 
     def __init__(self, ai_game):
@@ -17,7 +17,7 @@ class Score:
 
     def prep_score(self):
         """Creates rendered image of the game score."""
-        rounded_score = round(int(self.stats.score), -1)
+        rounded_score = round(self.stats.score, -1)
         score_str = f'{rounded_score:,}'
         self.score_image = self.font.render(score_str, True, self.text_color, 
                                             self.settings.bg_color)

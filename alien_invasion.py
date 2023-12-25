@@ -5,7 +5,7 @@ import pygame
 
 from modules.settings import Settings
 from modules.game_stats import GameStats
-from modules.score import Score
+from modules.score import Scoreboard
 from modules.ship import Ship
 from modules.bullet import Bullet
 from modules.alien import Alien
@@ -32,7 +32,7 @@ class AlienInvasion:
                                                    self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
 
-        self.score = Score(self)
+        self.score = Scoreboard(self)
 
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
