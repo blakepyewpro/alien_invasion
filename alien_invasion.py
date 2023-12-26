@@ -5,7 +5,7 @@ import pygame
 
 from modules.settings import Settings
 from modules.game_stats import GameStats
-from modules.score import Scoreboard
+from modules.scoreboard import Scoreboard
 from modules.ship import Ship
 from modules.bullet import Bullet
 from modules.alien import Alien
@@ -138,6 +138,7 @@ class AlienInvasion:
         for aliens in collisions.values():
             self.stats.score += self.settings.alien_points * len(aliens)
         self.score.prep_score()
+        self.score.check_high_score()
         
         if not self.aliens:
             self.bullets.empty()
