@@ -15,6 +15,7 @@ class Scoreboard:
 
         self.prep_score()
         self._prep_high_score()
+        self.prep_level()
 
     def prep_score(self):
         """Creates rendered image of the game score."""
@@ -31,6 +32,7 @@ class Scoreboard:
         """Draws prepped scores to the screen."""
         self.screen.blit(self.score_image, self.score_rect)
         self.screen.blit(self.hs_image, self.hs_rect)
+        self.screen.blit(self.lvl_image, self.lvl_rect)
 
     def _prep_high_score(self):
         rounded_hs = round(self.stats.high_score, -1)
@@ -45,3 +47,11 @@ class Scoreboard:
         if self.stats.score > self.stats.high_score:
             self.stats.high_score = self.stats.score
             self._prep_high_score()
+
+    def prep_level(self):
+        lvl_str = f'lvl: {self.stats.level}'
+        self.lvl_image = self.font.render(lvl_str, True, self.text_color,
+                                          self.settings.bg_color)
+        self.lvl_rect = self.lvl_image.get_rect()
+        self.lvl_rect.right = self.score_rect.right
+        self.lvl_rect.top = self.score_rect.bottom + 10
