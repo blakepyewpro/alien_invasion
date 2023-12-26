@@ -10,7 +10,7 @@ class Settings:
         self.fullscreen = False
 
         #ship settings
-        self.ships_limit = 3
+        self.ships_limit = 2
 
         #bullet settings
         self.bullet_width = 3
@@ -30,9 +30,9 @@ class Settings:
         """Resets settings that change during the game."""
         #legacy ship speed = 1.5
         self.ship_speed = 1.8
-        #legacy bullet speed = 1.5
+        #legacy bullet speed = 2.5
         self.bullet_speed = 3
-        #legacy alien speed = 1.5
+        #legacy alien speed = 1
         self.alien_speed = 1.2
 
         self.fleet_direction = 1

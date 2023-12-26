@@ -100,6 +100,7 @@ class AlienInvasion:
             self.settings.init_dynamic_settings()
             self.score.prep_score()
             self.score.prep_level()
+            self.score.prep_ships()
             self.game_active = True
 
             self.aliens.empty()
@@ -165,6 +166,7 @@ class AlienInvasion:
 
         if self.stats.ships_left > 0:
             self.stats.ships_left -= 1
+            self.score.prep_ships()
 
             self.bullets.empty()
             self.aliens.empty()
